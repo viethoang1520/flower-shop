@@ -85,6 +85,12 @@ import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
       </div>
     </div>
   </div>
+  <form action=":3000" method="post">
+    <input type="text" name="email" placeholder="Enter your email" />
+    <input type="text" name="name" placeholder="Enter your name" />
+    <input type="text" name="phone" placeholder="Enter your phone" />
+    <button type="submit">Subscribe</button>
+  </form>
   <ProductComp
     :products="[
       // load model with img from images/product folder & auto generate example data
