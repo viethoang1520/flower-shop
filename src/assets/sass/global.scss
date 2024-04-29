@@ -1,0 +1,17 @@
+// Custom bootstrap
+.navbar-brand {
+  margin-right: 0 !important;
+}
+.row {
+  margin-right: 0;
+}
+
+// Styles for mobile devices
+.mobile-display {
+  display: none;
+}
+@media (max-width: 767px) {
+  .mobile-display {
+    display: block;
+  }
+}
