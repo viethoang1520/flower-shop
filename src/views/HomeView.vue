@@ -1,9 +1,6 @@
 <script setup>
 import Carousel from '../components/CarouselComp.vue'
 import ProductComp from '../components/ProductComp.vue'
-import carousel_img_1 from '@/assets/images/carousel/carousel-1.jpg'
-import carousel_img_2 from '@/assets/images/carousel/carousel-2.jpg'
-import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
 </script>
 
 <template>
@@ -11,93 +8,67 @@ import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
     <div class="container">
       <div class="category-item">
         <img src="../assets/images/category/category-1.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>New Arrivals</h5>
+        <h5>Sân vườn</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-2.jpg" alt="Sale Banner" height="229px" wi dth="229px" />
-        <h5>Trending</h5>
+        <h5>Ngoại cảnh</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-3.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>On Sale</h5>
+        <h5>Nội thất</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-4.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>Cast Iron</h5>
+        <h5>Phòng ngủ</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-5.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>Table Lamps</h5>
+        <h5>Ngày lễ</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-6.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>Chandeliers</h5>
+        <h5>Đơn giản</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-7.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>Storage Boxes</h5>
+        <h5>Trang trí</h5>
       </div>
       <div class="category-item">
         <img src="../assets/images/category/category-8.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>Porcelain Figurines</h5>
+        <h5>Thiết kế</h5>
       </div>
       <div class="category-item">
-        <img src="../assets/images/category/category-8.jpg" alt="Sale Banner" height="229px" width="229px" />
-        <h5>All Decor</h5>
+        <img src="../assets/images/category/category-9.jpg" alt="Sale Banner" height="229px" width="229px" />
+        <h5>Trang trọng</h5>
+      </div>
+      <div class="category-item">
+        <img src="../assets/images/category/category-10.jpg" alt="Sale Banner" height="229px" width="229px" />
+        <h5>Lễ cưới</h5>
       </div>
     </div>
   </div>
   <div class="banner row d-flex justify-content-center">
     <div class="col-12">
       <div class="carousel">
-        <Carousel :images="images" />
+        <Carousel :images="carousels" />
       </div>
     </div>
   </div>
-  <div class="hot-product row">
-    <h3 class="col-12">SẢN PHẨM NỔI BẬT</h3>
-    <div class="hot-product-item">
-      <img src="https://thedecorkart.com/cdn/shop/files/1000_2_400x.png?v=1713271627" alt="" />
-      <RouterLink to="/hot-product-1">
-        <h6 class="hot-product-price">Vien bi</h6>
-      </RouterLink>
-    </div>
-    <div class="hot-product-item">
-      <img src="https://thedecorkart.com/cdn/shop/files/3000_1_400x.png?v=1713273999" alt="" />
-      <RouterLink to="/hot-product-2">
-        <h6 class="hot-product-price">Dong ho</h6>
-      </RouterLink>
-    </div>
-    <div class="hot-product-item">
-      <img src="https://thedecorkart.com/cdn/shop/files/5000_4e86fd90-373d-4f92-8cb1-6561099644df_400x.png?v=1713274036"
-        alt="" />
-      <RouterLink to="/hot-product-3">
-        <h6 class="hot-product-price">Sach</h6>
-      </RouterLink>
+  <div class="hot-product">
+    <h3 class="hot-product-title">SẢN PHẨM NỔI BẬT</h3>
+    <div class="hot-product-list">
+      <div class="hot-product-item" v-for="product in hotProducts" :key="product.id">
+        <img :src="product.image" :alt="product.name" />
+        <RouterLink :to="`/hot-product?id=${product.id}`">
+          <h6 class="hot-product-price">{{ product.name }}</h6>
+        </RouterLink>
+      </div>
     </div>
   </div>
   <div class="list-products">
     <div class="container">
-      <ProductComp :products="[
-        // load model with img from images/product folder & auto generate example data
-        { name: 'Product 1', rate: 3, price: '100.000đ', image: imgUrl('p1') },
-        { name: 'Product 2', rate: 5, price: '200.000đ', image: imgUrl('p2') },
-        { name: 'Product 3', rate: 2, price: '300.000đ', image: imgUrl('p3') },
-        { name: 'Product 4', rate: 5, price: '400.000đ', image: imgUrl('p4') },
-        { name: 'Product 5', rate: 4, price: '500.000đ', image: imgUrl('p5') },
-        { name: 'Product 6', rate: 0, price: '600.000đ', image: imgUrl('p6') },
-        { name: 'Product 7', rate: 1, price: '700.000đ', image: imgUrl('p7') },
-        { name: 'Product 8', rate: 2, price: '800.000đ', image: imgUrl('p8') },
-        { name: 'Product 9', rate: 5, price: '900.000đ', image: imgUrl('p9') },
-        { name: 'Product 10', rate: 4, price: '1000.000đ', image: imgUrl('p10') },
-        // { name: 'Product 11', rate: 2, price: '1100.000đ', image: imgUrl('p11') },
-        // { name: 'Product 12', rate: 4, price: '1200.000đ', image: imgUrl('p12') },
-        // { name: 'Product 13', rate: 5, price: '1300.000đ', image: imgUrl('p13') },
-        // { name: 'Product 14', rate: 2, price: '1400.000đ', image: imgUrl('p14') },
-        // { name: 'Product 15', rate: 1, price: '1500.000đ', image: imgUrl('p15') },
-        // { name: 'Product 16', rate: 3, price: '1600.000đ', image: imgUrl('p16') },
-        // { name: 'Product 17', rate: 4, price: '1700.000đ', image: imgUrl('p17') }
-      ]" />
+      <ProductComp :products="products" />
       <div class="list-products-control">
         <h6>Hiển thị <b>10</b> trên <b>100</b> sản phẩm</h6>
         <RouterLink to="/products">
@@ -134,8 +105,9 @@ import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
 
       h5 {
         margin-top: 15px;
-        font-size: 15px;
+        font-size: 14px;
         text-align: center;
+        font-family: comfortaa_light;
       }
     }
   }
@@ -171,30 +143,47 @@ import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
 
 .hot-product {
   background-color: $main-color-3;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
+  height: fit-content;
 
   h3 {
     text-align: center;
     margin-bottom: 30px;
     margin-top: 50px;
+    font-family: comfortaa_light;
   }
 
-  .hot-product-item {
-    max-width: 350px;
+  &-title {
+    flex-basis: 100%;
+  }
+
+  &-list {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  &-item {
+    width: 450px;
+    margin-right: 50px;
+    padding-bottom: 30px;
 
     img {
-      width: 100%;
-      height: auto;
+      width: 450px;
+      height: 530px;
+      object-fit: cover;
+      border-radius: 50% 50% 5px 5px;
+      border: 4px solid #7c2f07;
     }
 
     h6 {
       text-align: center;
-      margin-top: 5px;
+      margin-top: 10px;
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
+      font-family: comfortaa_light;
     }
   }
 }
@@ -224,6 +213,10 @@ import carousel_img_3 from '@/assets/images/carousel/carousel-3.jpg'
 }
 </style>
 <script>
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useStore } from '../store/store';
+
 export default {
   name: 'HomeView',
   components: {
@@ -232,18 +225,64 @@ export default {
   },
   data() {
     return {
-      images: [
-        carousel_img_1,
-        carousel_img_2,
-        carousel_img_3
-        // Add more image URLs as needed
-      ]
+      products: [],
+      hotProducts: [],
+      carousels: [],
+      store: useStore()
     }
   },
   methods: {
     imgUrl(name) {
       return new URL('/assets/images/product/' + name + '.jpg', import.meta.url).href
+    },
+    setCookie(name, value) {
+      Cookies.set(name, value, { expires: 7 });
+    },
+    loadCookie() {
+      const cookieValue = Cookies.get('cart');
+      if (cookieValue != null) {
+        this.store.cart_list = JSON.parse(cookieValue);
+      }
+    },
+    loadDefault() {
+      // Define the data you want to post
+      const load_product = {
+        number: 10
+      };
+      const load_carousel = {
+        number: 3
+      };
+      const load_hot_product = {
+        type: "hot",
+        number: 5
+      };
+      // Make the POST request
+      axios.post('http://localhost:3000/product/load', load_product)
+        .then(response => {
+          this.products = response.data;
+        })
+        .catch(error => {
+          console.error('Error posting data:', error);
+        });
+      axios.post('http://localhost:3000/carousel/load', load_carousel)
+        .then(response => {
+          this.carousels = response.data;
+        })
+        .catch(error => {
+          console.error('Error posting data:', error);
+        });
+      axios.post('http://localhost:3000/product/load', load_hot_product)
+        .then(response => {
+          this.hotProducts = response.data;
+        })
+        .catch(error => {
+          console.error('Error posting data:', error);
+        });
     }
+  },
+  mounted() {
+    this.loadDefault();
+    this.loadCookie();
   }
 }
 </script>

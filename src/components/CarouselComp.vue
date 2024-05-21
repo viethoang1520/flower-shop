@@ -1,7 +1,7 @@
 <template>
   <carousel :autoplay="2000" :wrap-around="true">
     <slide v-for="(image, index) in images" :key="index">
-      <img :src="image" alt="Slide {{ index + 1 }}" />
+      <img :src="image.image_path" alt="Slide {{ index + 1 }}" />
     </slide>
 
     <template #addons>

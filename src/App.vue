@@ -5,10 +5,11 @@ import Footer from './views/partials/FooterView.vue'
 </script>
 
 <template>
-  <header>
+  <header style="padding-bottom: 90px;">
     <Navbar />
   </header>
 
   <RouterView />
+  <notifications />
   <Footer />
 </template>
